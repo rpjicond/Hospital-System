@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/MEDICAre_RFND_favicon.png' %}">
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <title>Madicare</title>
+</head>
+<body>
+    <div class="page-de-connexion">
+        <div class="formulaire">
+            <div class="logo">
+                <img src="{% static 'img/MEDICAre_RFND_logo.png' %}" alt="Logo">
+            </div>
+            
+            <!-- Exibe a mensagem de erro ou sucesso -->
+            {% if message %}
+                <div class="message">{{ message }}</div>
+            {% endif %}
+            
+            <!-- Formulário de login -->
+            <form method="POST" class="formulaire-connexion">
+                {% csrf_token %}
+                <!-- Campo username com valor preservado -->
+                <input type="text" name="username" placeholder="Nom d'utilisateur" value="{{ form.username.value|default:'' }}" required />
+
+                
+                <!-- Campo password -->
+                <input type="password" name="password" placeholder="Mot de passe" required />
+
+                <!-- Exibindo erros de validação do campo username -->
+                {% if form.username.errors %}
+                    <div class="error">{{ form.username.errors }}</div>
+                {% endif %}
+                
+                <!-- Exibindo erros de validação do campo password -->
+                {% if form.password.errors %}
+                    <div class="error">{{ form.password.errors }}</div>
+                {% endif %}
+                
+                <button type="submit">Connexion</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
