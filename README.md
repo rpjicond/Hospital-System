@@ -46,10 +46,9 @@
 ## Technologies Used
 
 - **Backend**: Django (Python)
-- **Database**: PostgreSQL or MySQL
+- **Database**: SQLITE
 - **Frontend**: Django Templates (or React.js/Vue.js for a more interactive interface)
 - **API for Device Communication**: Django REST Framework
-- **Machine Learning**: AI models for predictive data analysis
 
 ---
 <img width="1680" alt="Capture d’écran 2024-10-24 à 10 54 19 PM" src="https://github.com/user-attachments/assets/aac11999-c54b-47fc-bb07-1dca2b60b668">
